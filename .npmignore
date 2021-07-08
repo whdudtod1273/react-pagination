@@ -1,0 +1,13 @@
+# npm
+node_modules/
+
+#others
+src
+demo
+.babelrc
+webpack.config.js
+public
+.gitignore
+
+# GIT
+.git

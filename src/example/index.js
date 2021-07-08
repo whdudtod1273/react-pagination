@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Pagenation from '../lib/Pagenation';
+import Pagination from '../lib/Pagination';
 import data from '../testData'
 
 function Example() {
@@ -15,7 +15,7 @@ function Example() {
           </div>
         ))
       }
-      <Pagenation defaultData={defaultData} setPost={setPost} type="roundEdge" />
+      <Pagination defaultData={defaultData} setPost={setPost} type="roundEdge" />
     </div>
   );
 }

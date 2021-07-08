@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import './pagenation.css'
+import './pagination.css'
 import { ReactComponent as ArrowRightIcon } from '../assets/arrowRightIcon.svg'
 import { ReactComponent as ArrowLeftIcon } from '../assets/arrowLeftIcon.svg'
 
-const Pagenation = ({ defaultData = [], setPost, line = 5, showNumber = 10, type = "" }) => {
+const Pagination = ({ defaultData = [], setPost, line = 5, showNumber = 10, type = "" }) => {
 
   const [originPostData, setOriginPostData] = useState();
   const [postData, setPostData] = useState();
@@ -83,4 +83,4 @@ const Pagenation = ({ defaultData = [], setPost, line = 5, showNumber = 10, type
     </div>
   )
 }
-export default Pagenation
+export default Pagination
