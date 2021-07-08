@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import './pagination.css'
-import { ReactComponent as ArrowRightIcon } from '../assets/arrowRightIcon.svg'
-import { ReactComponent as ArrowLeftIcon } from '../assets/arrowLeftIcon.svg'
+import { ReactComponent as ArrowRightIcon } from './assets/arrowRightIcon.svg'
+import { ReactComponent as ArrowLeftIcon } from './assets/arrowLeftIcon.svg'
 
 const Pagination = ({ defaultData = [], setPost, line = 5, showNumber = 10, type = "" }) => {
 

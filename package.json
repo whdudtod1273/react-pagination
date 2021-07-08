@@ -1,8 +1,11 @@
 {
-  "name": "@ys/react-pagination",
-  "version": "0.1.0",
-  "description": "This is a pagination component that can be used in react.",
+  "name": "@todys/react-pagination",
+  "version": "0.1.1",
   "private": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "description": "This is a pagination component that can be used in react.",
   "dependencies": {
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
