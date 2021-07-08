@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import reportWebVitals from './reportWebVitals';
-import Pagenation from './Pagenation'
+// import Pagenation from './lib/Pagenation.js'
 import App from './App';
 // ReactDOM.render(
 //   <Pagenation />,

@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import Pagenation from '../Pagenation';
+import Pagenation from '../lib/Pagenation';
 import data from '../testData'
 
 function Example() {
