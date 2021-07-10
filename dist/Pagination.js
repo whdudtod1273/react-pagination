@@ -1,35 +1,100 @@
-"use strict";
+import React, { useState, useRef, useEffect } from 'react';
 
-function _typeof(obj) { "@babel/helpers - typeof"; if (typeof Symbol === "function" && typeof Symbol.iterator === "symbol") { _typeof = function _typeof(obj) { return typeof obj; }; } else { _typeof = function _typeof(obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; }; } return _typeof(obj); }
+function _arrayWithHoles(arr) {
+  if (Array.isArray(arr)) return arr;
+}
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = void 0;
+function _iterableToArrayLimit(arr, i) {
+  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
+  var _arr = [];
+  var _n = true;
+  var _d = false;
+  var _e = undefined;
 
-var _react = _interopRequireWildcard(require("react"));
+  try {
+    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
+      _arr.push(_s.value);
 
-require("./pagination.css");
+      if (i && _arr.length === i) break;
+    }
+  } catch (err) {
+    _d = true;
+    _e = err;
+  } finally {
+    try {
+      if (!_n && _i["return"] != null) _i["return"]();
+    } finally {
+      if (_d) throw _e;
+    }
+  }
 
-var _arrowRightIcon = require("./assets/arrowRightIcon.svg");
+  return _arr;
+}
 
-var _arrowLeftIcon = require("./assets/arrowLeftIcon.svg");
+function _arrayLikeToArray(arr, len) {
+  if (len == null || len > arr.length) len = arr.length;
 
-function _getRequireWildcardCache(nodeInterop) { if (typeof WeakMap !== "function") return null; var cacheBabelInterop = new WeakMap(); var cacheNodeInterop = new WeakMap(); return (_getRequireWildcardCache = function _getRequireWildcardCache(nodeInterop) { return nodeInterop ? cacheNodeInterop : cacheBabelInterop; })(nodeInterop); }
+  for (var i = 0, arr2 = new Array(len); i < len; i++) {
+    arr2[i] = arr[i];
+  }
 
-function _interopRequireWildcard(obj, nodeInterop) { if (!nodeInterop && obj && obj.__esModule) { return obj; } if (obj === null || _typeof(obj) !== "object" && typeof obj !== "function") { return { default: obj }; } var cache = _getRequireWildcardCache(nodeInterop); if (cache && cache.has(obj)) { return cache.get(obj); } var newObj = {}; var hasPropertyDescriptor = Object.defineProperty && Object.getOwnPropertyDescriptor; for (var key in obj) { if (key !== "default" && Object.prototype.hasOwnProperty.call(obj, key)) { var desc = hasPropertyDescriptor ? Object.getOwnPropertyDescriptor(obj, key) : null; if (desc && (desc.get || desc.set)) { Object.defineProperty(newObj, key, desc); } else { newObj[key] = obj[key]; } } } newObj.default = obj; if (cache) { cache.set(obj, newObj); } return newObj; }
+  return arr2;
+}
 
-function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _unsupportedIterableToArray(o, minLen) {
+  if (!o) return;
+  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  var n = Object.prototype.toString.call(o).slice(8, -1);
+  if (n === "Object" && o.constructor) n = o.constructor.name;
+  if (n === "Map" || n === "Set") return Array.from(o);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+}
 
-function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _nonIterableRest() {
+  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
+}
 
-function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _slicedToArray(arr, i) {
+  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+}
 
-function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+var RightArrowIcon = function RightArrowIcon(_ref) {
+  var width = _ref.width,
+      height = _ref.height,
+      stroke = _ref.stroke;
+  return /*#__PURE__*/React.createElement("svg", {
+    width: width,
+    height: height,
+    viewBox: "0 0 60 110",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    id: "Vector",
+    d: "M55 55.0539L5.10769 105M54.8923 54.9461L5 5",
+    stroke: stroke,
+    "stroke-width": "10",
+    "stroke-linecap": "round"
+  }));
+};
 
-function _iterableToArrayLimit(arr, i) { var _i = arr == null ? null : typeof Symbol !== "undefined" && arr[Symbol.iterator] || arr["@@iterator"]; if (_i == null) return; var _arr = []; var _n = true; var _d = false; var _s, _e; try { for (_i = _i.call(arr); !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"] != null) _i["return"](); } finally { if (_d) throw _e; } } return _arr; }
-
-function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+var LeftArrowIcon = function LeftArrowIcon(_ref) {
+  var width = _ref.width,
+      height = _ref.height,
+      stroke = _ref.stroke;
+  return /*#__PURE__*/React.createElement("svg", {
+    width: width,
+    height: height,
+    viewBox: "0 0 60 110",
+    fill: "none",
+    xmlns: "http://www.w3.org/2000/svg"
+  }, /*#__PURE__*/React.createElement("path", {
+    id: "Vector",
+    d: "M5 54.9461L54.8923 5M5.10768 55.0539L55 105",
+    stroke: stroke,
+    "stroke-width": "10",
+    "stroke-linecap": "round"
+  }));
+};
 
 var Pagination = function Pagination(_ref) {
   var _ref$defaultData = _ref.defaultData,
@@ -42,23 +107,23 @@ var Pagination = function Pagination(_ref) {
       _ref$type = _ref.type,
       type = _ref$type === void 0 ? "" : _ref$type;
 
-  var _useState = (0, _react.useState)(),
+  var _useState = useState(),
       _useState2 = _slicedToArray(_useState, 2),
       originPostData = _useState2[0],
       setOriginPostData = _useState2[1];
 
-  var _useState3 = (0, _react.useState)(),
+  var _useState3 = useState(),
       _useState4 = _slicedToArray(_useState3, 2),
       postData = _useState4[0],
       setPostData = _useState4[1];
 
-  var _useState5 = (0, _react.useState)(1),
+  var _useState5 = useState(1),
       _useState6 = _slicedToArray(_useState5, 2),
       currentPage = _useState6[0],
       setCurrentPage = _useState6[1];
 
-  var pagelength = (0, _react.useRef)();
-  (0, _react.useEffect)(function () {
+  var pagelength = useRef();
+  useEffect(function () {
     pagelength.current = Math.ceil(defaultData.length / line);
     var originArray = [];
     var useArray = [];
@@ -105,39 +170,41 @@ var Pagination = function Pagination(_ref) {
     }
   };
 
-  (0, _react.useEffect)(function () {
+  useEffect(function () {
     setPost(defaultData.slice((currentPage - 1) * line, currentPage * line));
   }, [currentPage, defaultData, line, setPost]);
-  return /*#__PURE__*/_react.default.createElement("div", {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("div", {
     className: "rp-container ".concat(type)
-  }, /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "rp-wrap"
-  }, /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/React.createElement("div", {
     className: "rp-arrow rp-prevArrow",
     onClick: prevClick
-  }, /*#__PURE__*/_react.default.createElement(_arrowLeftIcon.ReactComponent, {
+  }, /*#__PURE__*/React.createElement(LeftArrowIcon, {
     width: 7,
     height: 14,
     stroke: '#333'
-  })), /*#__PURE__*/_react.default.createElement("article", {
+  })), /*#__PURE__*/React.createElement("article", {
     className: "rp-pageNumberContainer"
   }, postData && postData.map(function (post, index) {
-    return /*#__PURE__*/_react.default.createElement("div", {
+    return /*#__PURE__*/React.createElement("div", {
       className: "rp-pageNumber ".concat(post === currentPage ? 'active' : ''),
       key: "page-".concat(index),
       onClick: function onClick() {
         setCurrentPage(post);
       }
-    }, /*#__PURE__*/_react.default.createElement("span", null, post));
-  })), /*#__PURE__*/_react.default.createElement("div", {
+    }, /*#__PURE__*/React.createElement("span", null, post));
+  })), /*#__PURE__*/React.createElement("div", {
     className: "rp-arrow rp-nextArrow",
     onClick: nextClick
-  }, /*#__PURE__*/_react.default.createElement(_arrowRightIcon.ReactComponent, {
+  }, /*#__PURE__*/React.createElement(RightArrowIcon, {
     width: 7,
     height: 14,
     stroke: '#333'
-  }))));
+  })))), /*#__PURE__*/React.createElement("style", {
+    jsx: true
+  }, "\n            .rp-container{display: block;width: 100%;}\n            .rp-container .rp-wrap{display: flex;flex: 1;justify-content: center;}\n            .rp-container .rp-wrap .rp-arrow{width: 30px;height: 30px;display: flex;justify-content: center;align-items: center;cursor: pointer;color:#424242;\n              -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;\n            }\n            .rp-container .rp-wrap .rp-prevArrow{}\n            .rp-container .rp-wrap .rp-nextArrow{}\n            .rp-container .rp-wrap .rp-pageNumberContainer{}\n            .rp-container .rp-wrap .rp-pageNumberContainer .rp-pageNumber{float: left;cursor: pointer;width: 30px;height: 30px;display: flex;justify-content: center;align-items: center;padding: 0 10px;\n              -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;\n            }\n            .rp-container .rp-wrap .rp-pageNumberContainer .rp-pageNumber span{color:#424242;font-size: 15px;display: inline-block;line-height: 1;}\n            .rp-container .rp-wrap .rp-pageNumberContainer .rp-pageNumber.active span{font-weight: bold;}\n\n            /* roundBox */\n            .rp-container.roundEdge .rp-wrap .rp-pageNumberContainer .rp-pageNumber{border: 1px solid #e0e0e0;border-radius: 5px; padding: 0;margin: 0 5px;}\n            .rp-container.roundEdge .rp-wrap .rp-pageNumberContainer .rp-pageNumber span{color: #757575;}\n            .rp-container.roundEdge .rp-wrap .rp-arrow{border: 1px solid #e0e0e0;border-radius: 5px;}\n            .rp-container.roundEdge .rp-wrap .rp-arrow.rp-prevArrow{margin-right: 5px;}\n            .rp-container.roundEdge .rp-wrap .rp-arrow.rp-nextArrow{margin-left: 5px;}\n            /* active */\n            .rp-container.roundEdge .rp-wrap .rp-pageNumberContainer .rp-pageNumber.active{background-color: #424242;border: 1px solid #424242;}\n            .rp-container.roundEdge .rp-wrap .rp-pageNumberContainer .rp-pageNumber.active span{color: #fff;}\n\n            /* round */\n            .rp-container.round .rp-wrap .rp-pageNumberContainer .rp-pageNumber{border: 1px solid #e0e0e0;border-radius: 50%; padding: 0;margin: 0 5px;}\n            .rp-container.round .rp-wrap .rp-pageNumberContainer .rp-pageNumber span{color: #757575;}\n            .rp-container.round .rp-wrap .rp-arrow{border: 1px solid #e0e0e0;border-radius: 50%;}\n            .rp-container.round .rp-wrap .rp-arrow.rp-prevArrow{margin-right: 5px;}\n            .rp-container.round .rp-wrap .rp-arrow.rp-nextArrow{margin-left: 5px;}\n            /* active */\n            .rp-container.round .rp-wrap .rp-pageNumberContainer .rp-pageNumber.active{background-color: #424242;border: 1px solid #424242;}\n            .rp-container.round .rp-wrap .rp-pageNumberContainer .rp-pageNumber.active span{color: #fff;}\n          "));
 };
 
-var _default = Pagination;
-exports.default = _default;
+export { Pagination };
+//# sourceMappingURL=Pagination.js.map

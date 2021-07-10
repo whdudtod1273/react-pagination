@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import Pagination from '../lib/Pagination';
-import data from '../testData'
+import data from './testData'
 
 function Example() {
   const [post, setPost] = useState([]);
