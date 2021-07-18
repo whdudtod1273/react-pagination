@@ -45,12 +45,12 @@ ReactDOM.render(
 ## Type
 
 ### basic   
-![basic](../lib/img/basic.png)      
+![basic](./src/lib/img/basic.png)      
 
 
 ### round   
-![basic](../lib/img/round.png)      
+![basic](./src/lib/img/round.png)      
 
 
 ### roundEdge   
-![basic](../lib/img/roundEdge.png)      
+![basic](./src/lib/img/roundEdge.png)      
