@@ -45,12 +45,12 @@ ReactDOM.render(
 ## Type
 
 ### basic   
-![basic](./img/basic.png)      
+![basic](https://raw.githubusercontent.com/whdudtod1273/react-pagination/main/img/basic.png)      
 
 
 ### round   
-![basic](./img/round.png)      
+![basic](https://raw.githubusercontent.com/whdudtod1273/react-pagination/main/img/round.png)      
 
 
 ### roundEdge   
-![basic](./img/roundEdge.png)      
+![basic](https://raw.githubusercontent.com/whdudtod1273/react-pagination/main/img/roundEdge.png)      
