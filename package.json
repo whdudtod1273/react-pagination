@@ -1,6 +1,6 @@
 {
   "name": "@todys/react-pagination",
-  "version": "0.1.5",
+  "version": "0.2.0",
   "main": "./dist/Pagination.js",
   "module": "./dist/Pagination.js",
   "private": false,
@@ -49,7 +49,8 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "publish:npm": "rm -rf dist && rollup -c"
+    "publish:npm": "rm -rf dist && rollup -c",
+    "version": "npm version patch"
   },
   "eslintConfig": {
     "extends": [
