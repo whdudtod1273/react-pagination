@@ -44,13 +44,13 @@ ReactDOM.render(
 
 ## Type
 
-basic   
+### basic   
 ![basic](./img/basic.png)      
 
 
-round
+### round   
 ![basic](./img/round.png)      
 
 
-roundEdge
+### roundEdge   
 ![basic](./img/roundEdge.png)      
