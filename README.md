@@ -26,6 +26,7 @@ ReactDOM.render(
     type="round" 
     line={5} 
     showNumber={10}
+    btnStartEnd={true}
   />
 )
 ```
@@ -39,3 +40,17 @@ ReactDOM.render(
 |type|string|""|pagination style type|
 |line|number|5|number of lines to be displayed on the screen|
 |showNumber|number|10|page number to be displayed on the screen|
+|btnStartEnd|false|Boolean|Button to the first,last page|
+
+## Type
+
+basic   
+![basic](./img/basic.png)      
+
+
+round
+![basic](./img/round.png)      
+
+
+roundEdge
+![basic](./img/roundEdge.png)      

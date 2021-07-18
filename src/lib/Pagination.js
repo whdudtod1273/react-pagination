@@ -2,8 +2,10 @@ import React, { useEffect, useRef, useState } from 'react';
 import './pagination.css'
 import RightArrowIcon from './svg/RightArrowIcon';
 import LeftArrowIcon from './svg/LeftArrowIcon';
+import StartArrowIcon from './svg/StartArrowIcon';
+import EndArrowIcon from './svg/EndArrowIcon';
 
-const Pagination = ({ defaultData = [], setPost, line = 5, showNumber = 10, type = "" }) => {
+const Pagination = ({ defaultData = [], setPost, line = 5, showNumber = 10, type = "", btnStartEnd = false }) => {
 
   const [originPostData, setOriginPostData] = useState();
   const [postData, setPostData] = useState();
@@ -36,6 +38,10 @@ const Pagination = ({ defaultData = [], setPost, line = 5, showNumber = 10, type
     setPostData(useArray);
   }, [defaultData.length, line, showNumber])
 
+  useEffect(() => {
+    setPost(defaultData.slice((currentPage - 1) * line, currentPage * line));
+  }, [currentPage, defaultData, line, setPost]);
+
   const prevClick = () => {
     if (currentPage > 1) {
       setCurrentPage(currentPage - 1);
@@ -54,14 +60,25 @@ const Pagination = ({ defaultData = [], setPost, line = 5, showNumber = 10, type
     }
   }
 
-  useEffect(() => {
-    setPost(defaultData.slice((currentPage - 1) * line, currentPage * line));
-  }, [currentPage, defaultData, line, setPost]);
+  const firstButtonClick = () => {
+    setCurrentPage(1)
+  }
+
+  const lastButtonClick = () => {
+    setCurrentPage(originPostData.length)
+  }
 
   return (
     <>
       <div className={`rp-container ${type}`}>
         <div className={`rp-wrap`}>
+          {
+            btnStartEnd && (
+              <div className="rp-arrow rp-firstBtnArrow" onClick={firstButtonClick}>
+                <StartArrowIcon width={14} height={14} stroke={'#333'} />
+              </div>
+            )
+          }
           <div className="rp-arrow rp-prevArrow" onClick={prevClick}>
             <LeftArrowIcon width={7} height={14} stroke={'#333'} />
           </div>
@@ -80,9 +97,16 @@ const Pagination = ({ defaultData = [], setPost, line = 5, showNumber = 10, type
           <div className="rp-arrow rp-nextArrow" onClick={nextClick}>
             <RightArrowIcon width={7} height={14} stroke={'#333'} />
           </div>
+          {
+            btnStartEnd && (
+              <div className="rp-arrow rp-lastBtnArrow" onClick={lastButtonClick}>
+                <EndArrowIcon width={14} height={14} stroke={'#333'} />
+              </div>
+            )
+          }
         </div>
       </div>
-      <style jsx>
+      <style jsx="ture">
         {
           `
             .rp-container{display: block;width: 100%;}
@@ -92,6 +116,8 @@ const Pagination = ({ defaultData = [], setPost, line = 5, showNumber = 10, type
             }
             .rp-container .rp-wrap .rp-prevArrow{}
             .rp-container .rp-wrap .rp-nextArrow{}
+            .rp-container .rp-wrap .rp-firstBtnArrow{margin-right: 10px;}
+            .rp-container .rp-wrap .rp-lastBtnArrow{margin-left: 10px;}
             .rp-container .rp-wrap .rp-pageNumberContainer{}
             .rp-container .rp-wrap .rp-pageNumberContainer .rp-pageNumber{float: left;cursor: pointer;width: 30px;height: 30px;display: flex;justify-content: center;align-items: center;padding: 0 10px;
               -ms-user-select: none; -moz-user-select: -moz-none; -webkit-user-select: none; -khtml-user-select: none; user-select:none;

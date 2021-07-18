@@ -15,7 +15,7 @@ function Example() {
           </div>
         ))
       }
-      <Pagination defaultData={defaultData} setPost={setPost} type="roundEdge" />
+      <Pagination defaultData={defaultData} setPost={setPost} type="" btnStartEnd={true} />
     </div>
   );
 }
