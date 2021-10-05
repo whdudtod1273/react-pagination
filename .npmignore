@@ -6,6 +6,7 @@ src
 demo
 .babelrc
 webpack.config.js
+tsconfig.json
 public
 .gitignore
 

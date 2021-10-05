@@ -5,12 +5,21 @@ import LeftArrowIcon from './svg/LeftArrowIcon';
 import StartArrowIcon from './svg/StartArrowIcon';
 import EndArrowIcon from './svg/EndArrowIcon';
 
-const Pagination = ({ defaultData = [], setPost, line = 5, showNumber = 10, type = "", btnStartEnd = false }) => {
+type Props = {
+  defaultData: any;
+  setPost: any;
+  line: number;
+  showNumber: number;
+  type: string;
+  btnStartEnd: boolean;
+}
 
-  const [originPostData, setOriginPostData] = useState();
-  const [postData, setPostData] = useState();
+const Pagination:React.FC<Props> = ({ defaultData = [], setPost, line = 5, showNumber = 10, type = "", btnStartEnd = false }) => {
+
+  const [originPostData, setOriginPostData] = useState<any>();
+  const [postData, setPostData] = useState<any>();
   const [currentPage, setCurrentPage] = useState(1);
-  const pagelength = useRef();
+  const pagelength = useRef<any>();
 
   useEffect(() => {
     pagelength.current = Math.ceil(defaultData.length / line)
@@ -84,7 +93,7 @@ const Pagination = ({ defaultData = [], setPost, line = 5, showNumber = 10, type
           </div>
           <article className="rp-pageNumberContainer">
             {postData &&
-              postData.map((post, index) => {
+              postData.map((post:any, index:number) => {
                 return (
                   <div className={`rp-pageNumber ${post === currentPage ? 'active' : ''}`} key={`page-${index}`}
                     onClick={() => { setCurrentPage(post) }}>

@@ -11,4 +11,3 @@ export { default as Pagination } from './lib/Pagination'
 //   </React.StrictMode>,
 //   document.getElementById('root')
 // );
-// reportWebVitals();
